@@ -15,7 +15,7 @@ public class Message {
     private String sender;
 
     @NotBlank(message = "Content is required")
-    @Size(min = 1, message = "Content must be at least 3 characters")
+    @Size(min = 1, message = "Content must be at least 1 character long")
     private String content;
 
     public Message() {
