@@ -7,4 +7,5 @@ import java.util.List;
 public interface MessageRepository extends JpaRepository<Message, Long> {
     List<Message> findBySender(String sender);
     List<Message> findAllByOrderByCreatedAtAsc();
+    List<Message> findByRoomOrderByCreatedAtAsc(String room);
 }
