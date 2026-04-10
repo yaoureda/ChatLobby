@@ -15,10 +15,8 @@ public class ChatWebSocketController {
 
     @MessageMapping("/chat.send")
     @SendTo("/topic/messages")
-    public ChatMessage sendMessage(ChatMessage chatMessage) {
+    public Message sendMessage(ChatMessage chatMessage) {
         Message message = new Message(chatMessage.getSender(), chatMessage.getContent());
-        messageService.addMessage(message);
-
-        return chatMessage;
+        return messageService.addMessage(message);
     }
 }
