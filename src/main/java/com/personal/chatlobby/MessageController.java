@@ -20,6 +20,11 @@ public class MessageController {
         return messageService.getAllMessages();
     }
 
+    @GetMapping("/room/{room}")
+    public List<Message> getMessagesByRoom(@PathVariable String room) {
+        return messageService.getMessagesByRoom(room);
+    }
+
     @PostMapping
     public Message createMessage(@Valid @RequestBody Message message) {
         return messageService.addMessage(message);
