@@ -3,7 +3,7 @@
 # Database Setup
 1. Install PostgreSQL and then run in terminal:
 ```bash
-psql -U postgres
+psql postgres
 ```
 2. Create a user and a database:
 ```sql
