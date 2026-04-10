@@ -15,7 +15,7 @@ public class MessageService {
     }
 
     public List<Message> getAllMessages() {
-        return messageRepository.findAll();
+        return messageRepository.findAllByOrderByCreatedAtAsc();
     }
 
     public Message addMessage(Message message) {
