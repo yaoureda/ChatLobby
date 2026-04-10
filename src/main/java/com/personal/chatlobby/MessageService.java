@@ -18,6 +18,10 @@ public class MessageService {
         return messageRepository.findAllByOrderByCreatedAtAsc();
     }
 
+    public List<Message> getMessagesByRoom(String room) {
+        return messageRepository.findByRoomOrderByCreatedAtAsc(room);
+    }
+
     public Message addMessage(Message message) {
         if (message.getCreatedAt() == null) {
             message.setCreatedAt(LocalDateTime.now());
