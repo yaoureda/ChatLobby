@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class Message {
 
@@ -18,12 +20,15 @@ public class Message {
     @Size(min = 1, message = "Content must be at least 1 character long")
     private String content;
 
+    private LocalDateTime createdAt;
+
     public Message() {
     }
 
     public Message(String sender, String content) {
         this.sender = sender;
         this.content = content;
+        this.createdAt = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -44,5 +49,13 @@ public class Message {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }
