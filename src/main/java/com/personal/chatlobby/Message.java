@@ -20,6 +20,9 @@ public class Message {
     @Size(min = 1, message = "Content must be at least 1 character long")
     private String content;
 
+    @NotBlank(message = "Room is required")
+    private String room;
+
     private LocalDateTime createdAt;
 
     public Message() {
@@ -28,6 +31,7 @@ public class Message {
     public Message(String sender, String content) {
         this.sender = sender;
         this.content = content;
+        this.room = room;
         this.createdAt = LocalDateTime.now();
     }
 
@@ -49,6 +53,14 @@ public class Message {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
     }
 
     public LocalDateTime getCreatedAt() {
