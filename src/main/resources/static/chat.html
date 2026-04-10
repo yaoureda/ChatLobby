@@ -48,7 +48,10 @@
 
     function showMessage(msg) {
         const li = document.createElement("li");
-        li.textContent = msg.sender + ": " + msg.content;
+
+        const time = msg.createdAt ? new Date(msg.createdAt).toLocaleString() : "";
+        li.textContent = `[${time}] ${msg.sender}: ${msg.content}`;
+
         document.getElementById("messages").appendChild(li);
     }
 
