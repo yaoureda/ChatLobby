@@ -9,6 +9,7 @@
 
 <input id="sender" placeholder="Your name"/>
 <input id="message" placeholder="Message"/>
+<input id="room" placeholder="Room name" value="general"/>
 <button onclick="sendMessage()">Send</button>
 
 <ul id="messages"></ul>
@@ -19,6 +20,7 @@
 
 <script>
     let stompClient = null;
+    let currentSubscription = null;
 
     function connect() {
         const socket = new SockJS('/ws');
@@ -26,23 +28,44 @@
 
         stompClient.connect({}, function () {
             console.log("Connected");
-
-            stompClient.subscribe('/topic/messages', function (message) {
-                const msg = JSON.parse(message.body);
-                showMessage(msg);
-            });
-
-            loadMessages();
+            subscribeToRoom();
         });
+    }
+
+    function subscribeToRoom() {
+        const room = document.getElementById('room').value;
+
+        if (currentSubscription) {
+            currentSubscription.unsubscribe();
+        }
+
+        document.getElementById("messages").innerHTML = "";
+
+        currentSubscription = stompClient.subscribe('/topic/rooms/' + room, function (message) {
+            const msg = JSON.parse(message.body);
+            showMessage(msg);
+        });
+
+        loadMessagesForRoom(room);
+    }
+
+    function loadMessagesForRoom(room) {
+        fetch('/messages/room/' + room)
+            .then(res => res.json())
+            .then(data => {
+                data.forEach(msg => showMessage(msg));
+            });
     }
 
     function sendMessage() {
         const sender = document.getElementById('sender').value;
         const content = document.getElementById('message').value;
+        const room = document.getElementById('room').value;
 
         stompClient.send("/app/chat.send", {}, JSON.stringify({
             sender: sender,
-            content: content
+            content: content,
+            room: room
         }));
 
         document.getElementById('message').value = '';
