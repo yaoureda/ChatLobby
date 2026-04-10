@@ -2,6 +2,7 @@ package com.personal.chatlobby;
 
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -18,6 +19,9 @@ public class MessageService {
     }
 
     public Message addMessage(Message message) {
+        if (message.getCreatedAt() == null) {
+            message.setCreatedAt(LocalDateTime.now());
+        }
         return messageRepository.save(message);
     }
 
