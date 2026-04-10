@@ -28,7 +28,7 @@ public class Message {
     public Message() {
     }
 
-    public Message(String sender, String content) {
+    public Message(String sender, String content, String room) {
         this.sender = sender;
         this.content = content;
         this.room = room;
