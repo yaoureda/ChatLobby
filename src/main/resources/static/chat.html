@@ -58,6 +58,9 @@
     }
 
     function loadMessages() {
+        const messagesList = document.getElementById("messages");
+        messagesList.innerHTML = "";
+
         fetch('/messages')
             .then(res => res.json())
             .then(data => {
