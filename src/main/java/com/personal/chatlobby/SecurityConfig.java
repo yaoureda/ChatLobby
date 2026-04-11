@@ -16,6 +16,7 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/auth/register",
                                 "/login.html",
+                                "/register.html",
                                 "/error"
                         ).permitAll()
                         .anyRequest().authenticated()
@@ -26,7 +27,9 @@ public class SecurityConfig {
                         .defaultSuccessUrl("/chat.html", true)
                         .permitAll()
                 )
-                .logout(Customizer.withDefaults())
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/login.html")
+                )
                 .csrf(csrf -> csrf.disable());
 
         return http.build();
