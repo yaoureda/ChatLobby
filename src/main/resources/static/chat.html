@@ -7,7 +7,6 @@
 <body>
 <h2>WebSocket Chat Test</h2>
 
-<input id="sender" placeholder="Your name"/>
 <input id="message" placeholder="Message"/>
 <input id="room" placeholder="Room name" value="general"/>
 <button onclick="sendMessage()">Send</button>
@@ -59,12 +58,10 @@
     }
 
     function sendMessage() {
-        const sender = document.getElementById('sender').value;
         const content = document.getElementById('message').value;
         const room = document.getElementById('room').value;
 
         stompClient.send("/app/chat.send", {}, JSON.stringify({
-            sender: sender,
             content: content,
             room: room
         }));
