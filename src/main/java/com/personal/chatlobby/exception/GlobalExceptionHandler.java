@@ -1,4 +1,4 @@
-package com.personal.chatlobby;
+package com.personal.chatlobby.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;

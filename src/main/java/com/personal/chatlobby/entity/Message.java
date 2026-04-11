@@ -1,4 +1,4 @@
-package com.personal.chatlobby;
+package com.personal.chatlobby.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

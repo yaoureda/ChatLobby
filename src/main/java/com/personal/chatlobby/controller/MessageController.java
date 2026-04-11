@@ -1,5 +1,7 @@
-package com.personal.chatlobby;
+package com.personal.chatlobby.controller;
 
+import com.personal.chatlobby.entity.Message;
+import com.personal.chatlobby.service.MessageService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 

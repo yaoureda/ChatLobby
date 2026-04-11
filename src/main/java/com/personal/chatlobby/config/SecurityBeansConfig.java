@@ -1,4 +1,4 @@
-package com.personal.chatlobby;
+package com.personal.chatlobby.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

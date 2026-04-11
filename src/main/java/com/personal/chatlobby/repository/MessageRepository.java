@@ -1,5 +1,6 @@
-package com.personal.chatlobby;
+package com.personal.chatlobby.repository;
 
+import com.personal.chatlobby.entity.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

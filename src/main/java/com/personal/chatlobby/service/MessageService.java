@@ -1,5 +1,7 @@
-package com.personal.chatlobby;
+package com.personal.chatlobby.service;
 
+import com.personal.chatlobby.entity.Message;
+import com.personal.chatlobby.repository.MessageRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

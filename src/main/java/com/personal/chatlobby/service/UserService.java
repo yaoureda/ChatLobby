@@ -1,5 +1,8 @@
-package com.personal.chatlobby;
+package com.personal.chatlobby.service;
 
+import com.personal.chatlobby.dto.RegisterRequest;
+import com.personal.chatlobby.entity.User;
+import com.personal.chatlobby.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.personal.chatlobby;
+package com.personal.chatlobby.dto;
 
 public class ChatMessage {
 

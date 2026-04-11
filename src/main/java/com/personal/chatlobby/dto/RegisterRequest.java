@@ -1,4 +1,4 @@
-package com.personal.chatlobby;
+package com.personal.chatlobby.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

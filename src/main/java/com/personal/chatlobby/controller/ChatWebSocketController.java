@@ -1,5 +1,8 @@
-package com.personal.chatlobby;
+package com.personal.chatlobby.controller;
 
+import com.personal.chatlobby.dto.ChatMessage;
+import com.personal.chatlobby.entity.Message;
+import com.personal.chatlobby.service.MessageService;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;

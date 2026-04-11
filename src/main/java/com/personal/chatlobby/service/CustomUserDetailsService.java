@@ -1,5 +1,7 @@
-package com.personal.chatlobby;
+package com.personal.chatlobby.service;
 
+import com.personal.chatlobby.entity.User;
+import com.personal.chatlobby.repository.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
