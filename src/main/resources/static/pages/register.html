@@ -2,31 +2,35 @@
 <html>
 <head>
     <title>Register</title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-<h2>Create account</h2>
 
-<p id="error" style="color: red; display: none;"></p>
-<p id="success" style="color: green; display: none;"></p>
+<div class="container">
+    <h2>Create account</h2>
 
-<form id="register-form">
-    <div>
-        <label>Username:</label>
-        <input type="text" id="username" />
-    </div>
+    <p id="error" style="display: none;"></p>
+    <p id="success" style="display: none;"></p>
 
-    <div>
-        <label>Password:</label>
-        <input type="password" id="password" />
-    </div>
+    <form id="register-form">
+        <div>
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Enter username" />
+        </div>
 
-    <button type="submit">Sign up</button>
-</form>
+        <div>
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter password" />
+        </div>
 
-<p>
-    Already have an account?
-    <a href="/pages/login.html">Login here</a>
-</p>
+        <button type="submit">Sign up</button>
+    </form>
+
+    <p>
+        Already have an account?
+        <a href="/pages/login.html">Login</a>
+    </p>
+</div>
 
 <script src="/js/register.js"></script>
 
