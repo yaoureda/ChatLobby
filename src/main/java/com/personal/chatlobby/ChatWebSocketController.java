@@ -3,6 +3,7 @@ package com.personal.chatlobby;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.security.core.Authentication;
 
 @Controller
 public class ChatWebSocketController {
@@ -17,9 +18,10 @@ public class ChatWebSocketController {
     }
 
     @MessageMapping("/chat.send")
-    public void sendMessage(ChatMessage chatMessage) {
+    public void sendMessage(ChatMessage chatMessage, Authentication authentication) {
+        String username = authentication.getName();
         Message message = new Message(
-                chatMessage.getSender(),
+                username,
                 chatMessage.getContent(),
                 chatMessage.getRoom()
         );

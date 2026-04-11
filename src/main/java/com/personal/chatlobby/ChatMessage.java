@@ -2,25 +2,15 @@ package com.personal.chatlobby;
 
 public class ChatMessage {
 
-    private String sender;
     private String content;
     private String room;
 
     public ChatMessage() {
     }
 
-    public ChatMessage(String sender, String content, String room) {
-        this.sender = sender;
+    public ChatMessage(String content, String room) {
         this.content = content;
         this.room = room;
-    }
-
-    public String getSender() {
-        return sender;
-    }
-
-    public void setSender(String sender) {
-        this.sender = sender;
     }
 
     public String getContent() {
