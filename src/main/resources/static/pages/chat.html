@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Chat Test</title>
+</head>
+<body>
+<h2>WebSocket Chat Test</h2>
+<p>Logged in as: <strong id="current-user">loading...</strong></p>
+
+<input id="message" placeholder="Message"/>
+<input id="room" placeholder="Room name" value="general"/>
+<button onclick="sendMessage()">Send</button>
+<button onclick="subscribeToRoom()">Join Room</button>
+
+<ul id="messages"></ul>
+
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+<script src="/js/chat.js"></script>
+
+</body>
+</html>
