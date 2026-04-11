@@ -3,6 +3,9 @@ package com.personal.chatlobby;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -17,5 +20,10 @@ public class AuthController {
     public String register(@Valid @RequestBody RegisterRequest request) {
         userService.register(request);
         return "User registered successfully";
+    }
+
+    @GetMapping("/me")
+    public Map<String, String> me(Principal principal) {
+        return Map.of("username", principal.getName());
     }
 }
