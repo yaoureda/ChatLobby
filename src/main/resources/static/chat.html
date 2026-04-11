@@ -6,6 +6,7 @@
 </head>
 <body>
 <h2>WebSocket Chat Test</h2>
+<p>Logged in as: <strong id="current-user">loading...</strong></p>
 
 <input id="message" placeholder="Message"/>
 <input id="room" placeholder="Room name" value="general"/>
@@ -23,6 +24,8 @@
     let currentSubscription = null;
 
     function connect() {
+        loadCurrentUser();
+
         const socket = new SockJS('/ws');
         stompClient = Stomp.over(socket);
 
@@ -86,6 +89,23 @@
             .then(res => res.json())
             .then(data => {
                 data.forEach(msg => showMessage(msg));
+            });
+    }
+
+    function loadCurrentUser() {
+        fetch('/auth/me')
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Failed to load current user');
+                }
+                return res.json();
+            })
+            .then(data => {
+                document.getElementById('current-user').textContent = data.username;
+            })
+            .catch(err => {
+                console.error(err);
+                document.getElementById('current-user').textContent = 'unknown';
             });
     }
 
