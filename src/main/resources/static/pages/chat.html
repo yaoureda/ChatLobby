@@ -13,7 +13,7 @@
     </div>
 
     <div class="chat-controls">
-        <input id="room" placeholder="Room name" value="general"/>
+        <select id="room"></select>
         <button onclick="subscribeToRoom()">Join Room</button>
     </div>
 
@@ -27,6 +27,37 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+<script>
+    async function loadRooms() {
+        try {
+            const response = await fetch('/chatrooms/all');
+            const rooms = await response.json();
+
+            const roomSelect = document.getElementById('room');
+            roomSelect.innerHTML = '';
+
+            rooms.forEach(room => {
+                const option = document.createElement('option');
+                option.value = room;
+                option.textContent = formatRoomName(room);
+                roomSelect.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Failed to load chat rooms:', error);
+        }
+    }
+
+    function formatRoomName(room) {
+        return room.charAt(0) + room.slice(1).toLowerCase();
+    }
+
+    function subscribeToRoom() {
+        const room = document.getElementById('room').value;
+        console.log('Joining room:', room);
+    }
+
+    window.addEventListener('DOMContentLoaded', loadRooms);
+</script>
 <script src="/js/chat.js"></script>
 
 </body>
