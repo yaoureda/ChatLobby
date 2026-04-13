@@ -1,5 +1,6 @@
 let stompClient = null;
 let currentSubscription = null;
+let displayedMessageIds = new Set();
 
 function connect() {
     loadCurrentUser();
@@ -21,6 +22,7 @@ function subscribeToRoom() {
     }
 
     document.getElementById("messages").innerHTML = "";
+    displayedMessageIds.clear();
 
     currentSubscription = stompClient.subscribe('/topic/rooms/' + room, function (message) {
         const msg = JSON.parse(message.body);
@@ -51,8 +53,13 @@ function sendMessage() {
 }
 
 function showMessage(msg) {
+    if (msg.id && displayedMessageIds.has(msg.id)) {
+        return;
+    }
+    if (msg.id) {
+        displayedMessageIds.add(msg.id);
+    }
     const li = document.createElement("li");
-
     const time = msg.createdAt ? new Date(msg.createdAt).toLocaleString() : "";
     li.textContent = `[${time}] ${msg.sender}: ${msg.content}`;
 
