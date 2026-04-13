@@ -90,13 +90,18 @@ async function loadRooms() {
             option.textContent = formatRoomName(room);
             roomSelect.appendChild(option);
         });
+
+        roomSelect.addEventListener('change', () => {
+            subscribeToRoom();
+        });
+
     } catch (error) {
         console.error('Failed to load chat rooms:', error);
     }
 }
 
 function formatRoomName(room) {
-    return room.charAt(0) + room.slice(1).toLowerCase();
+    return room.charAt(0).toUpperCase() + room.slice(1).toLowerCase();
 }
 
 window.addEventListener('DOMContentLoaded', loadRooms);
