@@ -104,5 +104,7 @@ function formatRoomName(room) {
     return room.charAt(0).toUpperCase() + room.slice(1).toLowerCase();
 }
 
-window.addEventListener('DOMContentLoaded', loadRooms);
-connect();
+window.addEventListener('DOMContentLoaded', async () => {
+    await loadRooms();
+    connect();
+});
