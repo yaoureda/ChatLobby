@@ -41,7 +41,6 @@ function loadMessagesForRoom(room) {
 function sendMessage() {
     const content = document.getElementById('message').value;
     const room = document.getElementById('room').value;
-    subscribeToRoom();
 
     stompClient.send("/app/chat.send", {}, JSON.stringify({
         content: content,
@@ -77,4 +76,28 @@ function loadCurrentUser() {
         });
 }
 
+async function loadRooms() {
+    try {
+        const response = await fetch('/chatrooms/all');
+        const rooms = await response.json();
+
+        const roomSelect = document.getElementById('room');
+        roomSelect.innerHTML = '';
+
+        rooms.forEach(room => {
+            const option = document.createElement('option');
+            option.value = room;
+            option.textContent = formatRoomName(room);
+            roomSelect.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Failed to load chat rooms:', error);
+    }
+}
+
+function formatRoomName(room) {
+    return room.charAt(0) + room.slice(1).toLowerCase();
+}
+
+window.addEventListener('DOMContentLoaded', loadRooms);
 connect();
