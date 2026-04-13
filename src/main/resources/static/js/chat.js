@@ -45,6 +45,10 @@ function sendMessage() {
     const content = document.getElementById('message').value;
     const room = document.getElementById('room').value;
 
+    if (!content) {
+        return;
+    }
+
     stompClient.send("/app/chat.send", {}, JSON.stringify({
         content: content,
         room: room
