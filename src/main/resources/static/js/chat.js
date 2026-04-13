@@ -60,17 +60,6 @@ function showMessage(msg) {
     document.getElementById("messages").appendChild(li);
 }
 
-function loadMessages() {
-    const messagesList = document.getElementById("messages");
-    messagesList.innerHTML = "";
-
-    fetch('/messages')
-        .then(res => res.json())
-        .then(data => {
-            data.forEach(msg => showMessage(msg));
-        });
-}
-
 function loadCurrentUser() {
     fetch('/auth/me')
         .then(res => {
