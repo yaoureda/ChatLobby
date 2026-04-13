@@ -1,14 +1,16 @@
 package com.personal.chatlobby.dto;
 
+import com.personal.chatlobby.entity.ChatRoom;
+
 public class ChatMessage {
 
     private String content;
-    private String room;
+    private ChatRoom room;
 
     public ChatMessage() {
     }
 
-    public ChatMessage(String content, String room) {
+    public ChatMessage(String content, ChatRoom room) {
         this.content = content;
         this.room = room;
     }
@@ -21,11 +23,11 @@ public class ChatMessage {
         this.content = content;
     }
 
-    public String getRoom() {
+    public ChatRoom getRoom() {
         return room;
     }
 
-    public void setRoom(String room) {
+    public void setRoom(ChatRoom room) {
         this.room = room;
     }
 }

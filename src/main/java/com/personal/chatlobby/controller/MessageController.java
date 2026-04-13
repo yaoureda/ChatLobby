@@ -1,5 +1,6 @@
 package com.personal.chatlobby.controller;
 
+import com.personal.chatlobby.entity.ChatRoom;
 import com.personal.chatlobby.entity.Message;
 import com.personal.chatlobby.service.MessageService;
 import jakarta.validation.Valid;
@@ -23,7 +24,7 @@ public class MessageController {
     }
 
     @GetMapping("/room/{room}")
-    public List<Message> getMessagesByRoom(@PathVariable String room) {
+    public List<Message> getMessagesByRoom(@PathVariable ChatRoom room) {
         return messageService.getMessagesByRoom(room);
     }
 

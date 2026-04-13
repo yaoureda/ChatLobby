@@ -1,5 +1,6 @@
 package com.personal.chatlobby.service;
 
+import com.personal.chatlobby.entity.ChatRoom;
 import com.personal.chatlobby.entity.Message;
 import com.personal.chatlobby.repository.MessageRepository;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class MessageService {
         return messageRepository.findAllByOrderByCreatedAtAsc();
     }
 
-    public List<Message> getMessagesByRoom(String room) {
+    public List<Message> getMessagesByRoom(ChatRoom room) {
         return messageRepository.findByRoomOrderByCreatedAtAsc(room);
     }
 

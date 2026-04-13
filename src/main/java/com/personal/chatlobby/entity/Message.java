@@ -2,6 +2,7 @@ package com.personal.chatlobby.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
@@ -20,15 +21,16 @@ public class Message {
     @Size(min = 1, message = "Content must be at least 1 character long")
     private String content;
 
-    @NotBlank(message = "Room is required")
-    private String room;
+    @Enumerated(EnumType.STRING)
+    @NotNull(message = "Room is required")
+    private ChatRoom room;
 
     private LocalDateTime createdAt;
 
     public Message() {
     }
 
-    public Message(String sender, String content, String room) {
+    public Message(String sender, String content, ChatRoom room) {
         this.sender = sender;
         this.content = content;
         this.room = room;
@@ -55,11 +57,11 @@ public class Message {
         this.content = content;
     }
 
-    public String getRoom() {
+    public ChatRoom getRoom() {
         return room;
     }
 
-    public void setRoom(String room) {
+    public void setRoom(ChatRoom room) {
         this.room = room;
     }
 
