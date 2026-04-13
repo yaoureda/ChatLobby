@@ -41,6 +41,7 @@ function loadMessagesForRoom(room) {
 function sendMessage() {
     const content = document.getElementById('message').value;
     const room = document.getElementById('room').value;
+    subscribeToRoom();
 
     stompClient.send("/app/chat.send", {}, JSON.stringify({
         content: content,
