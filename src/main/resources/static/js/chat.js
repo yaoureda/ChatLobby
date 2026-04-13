@@ -1,6 +1,7 @@
 let stompClient = null;
 let currentSubscription = null;
 let displayedMessageIds = new Set();
+let currentUser = null;
 
 function connect() {
     loadCurrentUser();
@@ -63,6 +64,12 @@ function showMessage(msg) {
     const time = msg.createdAt ? new Date(msg.createdAt).toLocaleString() : "";
     li.textContent = `[${time}] ${msg.sender}: ${msg.content}`;
 
+    if (msg.sender === currentUser) {
+        li.classList.add("my-message");
+    } else {
+        li.classList.add("other-message");
+    }
+
     document.getElementById("messages").appendChild(li);
 }
 
@@ -75,6 +82,7 @@ function loadCurrentUser() {
             return res.json();
         })
         .then(data => {
+            currentUser = data.username;
             document.getElementById('current-user').textContent = data.username;
         })
         .catch(err => {
