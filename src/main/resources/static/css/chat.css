@@ -1,13 +1,14 @@
-body {
+.chat-page {
     font-family: Arial, sans-serif;
     background: #E0E0E0;
     margin: 0;
+    min-height: 100vh;
+    padding-top: 40px;
 }
-
 .chat-container {
     width: 90%;
     max-width: 700px;
-    margin: 40px auto;
+    margin: 0 auto;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
@@ -15,33 +16,27 @@ body {
     flex-direction: column;
     overflow: hidden;
 }
-
 .chat-header {
     background: rgb(42, 84, 142);
     color: white;
     padding: 20px;
 }
-
 .chat-header h2 {
     margin: 0 0 8px 0;
 }
-
 .chat-header p {
     margin: 0;
     text-align: left;
 }
-
 .chat-controls {
     display: flex;
     gap: 10px;
     padding: 15px;
     border-bottom: 1px solid #eee;
 }
-
 .chat-controls input {
     flex: 1;
 }
-
 .messages-list {
     list-style: none;
     margin: 0;
@@ -51,50 +46,44 @@ body {
     overflow-y: auto;
     background: #EEEEEE;
 }
-
 .messages-list li {
     margin-bottom: 10px;
     padding: 10px 14px;
     border-radius: 10px;
     max-width: 70%;
 }
-
 .my-message {
     background: hsl(197, 62%, 38%);
     color: white;
     margin-left: auto;
     text-align: right;
 }
-
 .other-message {
     background: white;
     color: black;
     margin-right: auto;
 }
-
 .chat-input-area {
     display: flex;
     gap: 10px;
     padding: 15px;
     border-top: 1px solid #eee;
 }
-
 .chat-input-area input {
     flex: 1;
-}
-
-input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
 }
-
-button {
+.chat-input-area button {
     padding: 10px 16px;
     background: rgb(42, 84, 142);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+.footer-space {
+    padding-top: 40px;
 }
