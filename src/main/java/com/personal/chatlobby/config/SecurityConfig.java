@@ -14,8 +14,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/auth/register",
-                                "/pages/login.html",
-                                "/pages/register.html",
+                                "/login",
+                                "/register",
                                 "/js/**",
                                 "/css/**",
                                 "/error"
@@ -23,13 +23,13 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/pages/login.html")
+                        .loginPage("/login")
                         .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/pages/chat.html", true)
+                        .defaultSuccessUrl("/chat", true)
                         .permitAll()
                 )
                 .logout(logout -> logout
-                        .logoutSuccessUrl("/pages/login.html")
+                        .logoutSuccessUrl("/login")
                 )
                 .csrf(csrf -> csrf.disable());
 
