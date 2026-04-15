@@ -33,7 +33,7 @@ form.addEventListener('submit', async function (event) {
         successEl.style.display = 'block';
 
         setTimeout(() => {
-            window.location.href = '/login.html';
+            window.location.href = '/login';
         }, 1200);
 
     } catch (error) {
