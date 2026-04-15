@@ -11,6 +11,14 @@ function connect() {
 
     stompClient.connect({}, function () {
         console.log("Connected");
+
+        stompClient.subscribe('/topic/online-count', function (message) {
+            console.log('online-count:', message.body);
+            document.getElementById('online-count').textContent = message.body;
+        });
+
+        stompClient.send("/app/online-count", {}, "");
+
         subscribeToRoom();
     });
 }
