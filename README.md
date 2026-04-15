@@ -31,6 +31,6 @@ CREATE DATABASE chatlobbydb OWNER chatuser;
 ./mvnw spring-boot:run
 ```
 5. Open in browser:
-- Register a new user at `http://localhost:8080/pages/register.html`
-- Login at `http://localhost:8080/pages/login.html`
-- Access the chat interface at `http://localhost:8080/pages/chat.html`
+- Register a new user at `http://localhost:8080/register`
+- Login at `http://localhost:8080/login`
+- Access the chat interface at `http://localhost:8080/chat`
