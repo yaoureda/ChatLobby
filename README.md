@@ -13,7 +13,7 @@ A simple real-time chat application built with Spring Boot, WebSockets, and Post
 - ORM: Spring Data JPA / Hibernate
 - Real-time: WebSocket + STOMP
 - Security: Spring Security
-- Frontend: HTML, CSS, and JavaScript
+- Frontend: HTML, CSS, JavaScript, Thymeleaf
 
 ## Database Setup and Running the Application
 1. Install PostgreSQL and then run in terminal:
