@@ -46,6 +46,7 @@ function loadMessagesForRoom(room) {
         .then(res => res.json())
         .then(data => {
             data.forEach(msg => showMessage(msg));
+            scrollMessagesToBottom();
         });
 }
 
@@ -96,6 +97,7 @@ function showMessage(msg) {
     }
 
     document.getElementById("messages").appendChild(li);
+    scrollMessagesToBottom();
 }
 
 function loadCurrentUser() {
@@ -142,6 +144,11 @@ async function loadRooms() {
 
 function formatRoomName(room) {
     return room.charAt(0).toUpperCase() + room.slice(1).toLowerCase();
+}
+
+function scrollMessagesToBottom() {
+    const messages = document.getElementById("messages");
+    messages.scrollTop = messages.scrollHeight;
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
