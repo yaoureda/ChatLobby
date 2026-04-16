@@ -73,8 +73,21 @@ function showMessage(msg) {
         displayedMessageIds.add(msg.id);
     }
     const li = document.createElement("li");
-    const time = msg.createdAt ? new Date(msg.createdAt).toLocaleString() : "";
-    li.textContent = `[${time}] ${msg.sender}: ${msg.content}`;
+    const time = msg.createdAt
+        ? new Date(msg.createdAt).toLocaleString('en-GB', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        })
+        : "";
+    li.innerHTML = `
+        <div class="msg-line">
+            <span><strong>${msg.sender}:</strong> ${msg.content}</span>
+            <span class="msg-time">${time}</span>
+        </div>
+    `;
 
     if (msg.sender === currentUser) {
         li.classList.add("my-message");

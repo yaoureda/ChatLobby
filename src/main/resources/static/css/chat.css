@@ -60,6 +60,17 @@
     color: black;
     margin-right: auto;
 }
+.msg-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.msg-time {
+    font-size: 0.75em;
+    opacity: 0.7;
+    white-space: nowrap;
+}
 .chat-input-area {
     display: flex;
     gap: 10px;
