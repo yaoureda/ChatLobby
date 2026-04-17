@@ -7,6 +7,11 @@ A simple real-time chat application built with Spring Boot, WebSockets, and Post
 - Persistent chat history stored in PostgreSQL.
 - Chat rooms for group conversations.
 
+## Interface
+<p align="center">
+  <img src="./assets/interface.png" height="450" style="object-fit: contain;">
+</p>
+
 ## Technologies Used
 - Backend: Spring Boot
 - Database: PostgreSQL
