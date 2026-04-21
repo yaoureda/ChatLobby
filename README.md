@@ -39,3 +39,65 @@ CREATE DATABASE chatlobbydb OWNER chatuser;
 - Register a new user at `http://localhost:8080/register`
 - Login at `http://localhost:8080/login`
 - Access the chat interface at `http://localhost:8080/chat`
+
+## Project Structure
+```
+ChatLobby/
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── com
+    │   │       └── personal
+    │   │           └── chatlobby
+    │   │               ├── ChatLobbyApplication.java
+    │   │               ├── config
+    │   │               │   ├── SecurityBeansConfig.java
+    │   │               │   ├── SecurityConfig.java
+    │   │               │   └── WebSocketConfig.java
+    │   │               ├── controller
+    │   │               │   ├── AuthController.java
+    │   │               │   ├── ChatRoomController.java
+    │   │               │   ├── ChatWebSocketController.java
+    │   │               │   ├── MessageController.java
+    │   │               │   ├── OnlineCountController.java
+    │   │               │   └── PageController.java
+    │   │               ├── dto
+    │   │               │   ├── ChatMessage.java
+    │   │               │   └── RegisterRequest.java
+    │   │               ├── entity
+    │   │               │   ├── ChatRoom.java
+    │   │               │   ├── Message.java
+    │   │               │   └── User.java
+    │   │               ├── event
+    │   │               │   └── WebSocketEventListener.java
+    │   │               ├── exception
+    │   │               │   └── GlobalExceptionHandler.java
+    │   │               ├── repository
+    │   │               │   ├── MessageRepository.java
+    │   │               │   └── UserRepository.java
+    │   │               └── service
+    │   │                   ├── CustomUserDetailsService.java
+    │   │                   ├── MessageService.java
+    │   │                   ├── OnlineUserService.java
+    │   │                   └── UserService.java
+    │   └── resources
+    │       ├── application.properties
+    │       ├── static
+    │       │   ├── css
+    │       │   │   ├── auth.css
+    │       │   │   └── chat.css
+    │       │   └── js
+    │       │       ├── chat.js
+    │       │       ├── login.js
+    │       │       └── register.js
+    │       └── templates
+    │           ├── fragments
+    │           │   ├── footer.html
+    │           │   └── header.html
+    │           └── pages
+    │               ├── chat.html
+    │               ├── login.html
+    │               └── register.html
+    └── test
+```
