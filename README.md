@@ -1,6 +1,14 @@
 ## ChatLobby – Real-Time Chat Application
 A simple real-time chat application built with Spring Boot, WebSockets, and PostgreSQL.
 
+## 🌐 Deployment
+
+The application is deployed using:
+- **Render** for the backend (Dockerized Spring Boot application)
+- **Neon** for the PostgreSQL database (serverless, free tier)
+
+👉 Live URL: https://chatlobby.onrender.com
+
 ## Features
 - User registration & login with Spring Security.
 - Real-time messaging with WebSockets.
@@ -20,7 +28,33 @@ A simple real-time chat application built with Spring Boot, WebSockets, and Post
 - Security: Spring Security
 - Frontend: HTML, CSS, JavaScript, Thymeleaf
 
-## Database Setup and Running the Application
+## Running locally with Docker
+
+### Prerequisites
+- Docker installed
+
+### Steps
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/chatlobby.git
+cd chatlobby
+```
+2. Create a .env file from the example:
+```bash
+cp .env.example .env
+```
+
+3. Build and run the application with Docker Compose:
+```bash
+docker compose up --build
+```
+4. Open in browser:
+- Register a new user at `http://localhost:8080/register`
+- Login at `http://localhost:8080/login`
+- Access the chat interface at `http://localhost:8080/chat`
+
+## Alternative to run locally (Manual Setup)
 1. Install PostgreSQL and then run in terminal:
 ```bash
 psql postgres
