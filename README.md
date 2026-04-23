@@ -2,10 +2,9 @@
 A simple real-time chat application built with Spring Boot, WebSockets, and PostgreSQL.
 
 ## 🌐 Deployment
-
 The application is deployed using:
 - **Render** for the backend (Dockerized Spring Boot application)
-- **Neon** for the PostgreSQL database (serverless, free tier)
+- **Neon** for the PostgreSQL database
 
 👉 Live URL: https://chatlobby.onrender.com
 
