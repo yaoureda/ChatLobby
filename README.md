@@ -77,6 +77,9 @@ CREATE DATABASE chatlobbydb OWNER chatuser;
 ## Project Structure
 ```
 ChatLobby/
+├── Dockerfile
+├── README.md
+├── docker-compose.yml
 ├── pom.xml
 └── src
     ├── main
